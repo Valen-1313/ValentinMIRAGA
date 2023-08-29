@@ -1,8 +1,67 @@
 <div class="container" style=" margin:100px auto">
     <div class="row">
         <div class="col">
-           <p class="text-right">hola {{usuario}} <a href="/admin/login/logout"
+           <p class="text-right">Hola!! {{usuario}} <a href="/admin/login/logout"
            class="btn btn-sm btn-danger">cerrar sesion <i class="fa fa-sign-out" aria-hidden="true"></i></a>
            </p>
+
+           <div class="row">
+            <div class="col-7" style="margin-top:-9px">
+                <h2>Listado de novedades</h2>
+            </div>
+           </div>
+           <div class="col-5 text-right">
+        <style>
+            /* Estilos base del botón */
+            .custom-button {
+                padding: 10px 20px;
+                background-color: #367534;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                transition: background-color 0.3s, transform 0.2s;
+                cursor: pointer;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            }
+            /* Efecto de hover */
+            .custom-button:hover {
+                background-color: #88eb07;
+                transform: scale(1.05);
+            }
+        </style>
+        <button class="custom-button">+Nuevo</button>
         </div>
-    </div>
+        </div>
+
+           </div>
+
+      <div class="row">
+        <div class="col">
+            <table class="table">
+            <thead>
+            <tr class="table-dark">
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col" class="text-right">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#each novedades}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{titulo}}</td>
+                    <td class="text-right">
+                        <a href=" " class="btn btn-secondary"><i class="fas fa-pencil-alt">
+                        </i></a>
+                        <a href="/admin/novedades/eliminar/{{id}}" class="btn-btn-secondary"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+            </table>
+        </div>
+      </div>

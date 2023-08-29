@@ -10,26 +10,15 @@ Nuestras  pizzas se caracterizan por ser elaboradas con la más moderna tecnolog
       </div>
     </div>
    
-
     <div class="row my-3">
       <div id="novedades" class="col-md-5 offset-md-2 py-3 scroll_section">
         <h2>Novedades</h2>
         <ul class="lista-novedades">
+          {{#each novedades}}
           <li>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="images/novedad.jpg" /></a> <p>Nuevas promos 1</p>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{id}}"><img src="images/novedad.jpg" />{{titulo}}</a> <p>Nuevas promos 1</p>
           </li>
-          <li>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="images/novedad.jpg" /></a><p>Nuevas promos 2</p>
-          </li>
-          <li>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="images/novedad.jpg" /></a><p>Nuevas promos 3</p>
-          </li>
-          <li>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="images/novedad.jpg" /></a><p>Nuevas promos 4</p>
-          </li>
-          <li>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="images/novedad.jpg" /></a><p>Nuevas promos 5</p>
-          </li>
+         {{/each}}
         </ul>
       </div>
     </div>
@@ -117,16 +106,17 @@ Nuestras  pizzas se caracterizan por ser elaboradas con la más moderna tecnolog
     <!--Fin del Formulario-->
 
     <!--Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{#each novedades}}
+    <div class="modal fade" id="exampleModal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Imperdible!!</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{titulo}}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <h2>Promos</h2>
-            <p>30% de descuento en La Esquina con Tarjetas de Crédito de Banco Galicia</p>
+            <h2>{{subtitulo}}</h2>
+            <p>{{cuerpo}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
@@ -134,5 +124,6 @@ Nuestras  pizzas se caracterizan por ser elaboradas con la más moderna tecnolog
           </div>
         </div>
       </div>
-    </div>         
+    </div> 
+    {{/each}}        
     <!--Fin del modal-->
